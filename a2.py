@@ -35,9 +35,15 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
         # If you get stuck on this one, we encourage you to attempt the other conditions
         #   and come back to this one afterwards
         elif pattern[pind] == "%":
-            result.append(source[pind])
-            pind+=1
-            sind+=1
+            if pind+1 == len(pattern):
+                combined = ' '.join(source[sind:])
+                result.append(combined)
+                return result
+            else:
+                return None # Placeholder, fix later
+            
+        elif pattern[pind] == "%":
+            
 
         # 3) if we reached the end of the source but not the pattern
         elif sind == len(source):
